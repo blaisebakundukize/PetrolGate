@@ -1,0 +1,34 @@
+.button{
+	height: 42px;
+	width:100px;
+	margin-left : 3px;
+	color : $primaryColor;
+	transition: background-color 0.5s ease-out;
+	font-weight : bold;
+}
+
+.button--danger{
+	@include button ($dangerColor);
+}
+.button--success{
+	@include button ($succesColor);
+}
+.button--submit{
+	@include button ($submitColor);
+}
+.button--print{
+    @include button ($primaryColor);
+    color : $succesColor;
+    height :35px;
+}
+.button--submit:hover{
+	background-color : $submitColor--hover;
+}
+
+.button--danger:hover{
+	background-color : $dangerColor--hover;
+}
+
+.button--success:hover{
+	background-color : $succesColor--hover;
+}

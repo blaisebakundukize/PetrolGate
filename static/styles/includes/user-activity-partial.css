@@ -1,0 +1,47 @@
+.activity-container {
+  display: flex;
+  height: auto;
+  width: auto;
+  background-color: inherit;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.activity {
+  display: flex;
+  flex-direction: column;
+  /* height: 350px; */
+  width: 300px;
+  border: 1px solid #e8e8e8;
+  border-radius: 2px;
+  background-color: #fefefe;
+  padding: 20px;
+  color: #42454a;
+  font-family: "Roboto", sans-serif;
+  margin-right: 8px;
+  margin-top: 8px; }
+
+.activity-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.icon-wrapper {
+  padding: 10px;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  border: 1px dashed #003a57; }
+
+.activity-icon__i {
+  font-size: 100px;
+  color: #003a57; }
+
+.activity__h3 {
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 24px; }
+
+.activity__p {
+  font-size: 14px;
+  line-height: 1.5; }

@@ -1,0 +1,112 @@
+.page-header{
+	background-color: $primaryColor;
+	height: 56px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: flex-start;
+	padding: 0 32px 0 16px;
+    z-index:1;
+    color: $primaryFontColor;
+    box-shadow: 1px 1px 6px $borderPrimaryColor;
+    justify-content: space-between;
+    font-family: $font-family--Roboto;
+}
+.logo{
+	flex-direction: row;
+    display: flex;
+    width: 120px;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo__img{
+	max-height: 40px;
+	max-width:60px;
+}
+.profile{
+	display:flex;
+	flex-direction:flex-start;
+	align-items:center;
+}
+.profile__img{
+	width: 30px;
+	height:30px;
+	border-radius:15px;
+	box-shadow: 1px 1px 6px $borderPrimaryColor;
+}
+
+.profile__img--description{
+	width: 70px;
+	height:70px;
+	border-radius:35px;
+	box-shadow: 1px 1px 6px $borderPrimaryColor;
+}
+
+.page-header--menu{
+	background-color: $primaryColor;
+	position: absolute;
+}
+.page-header__show-button{
+	border: none;
+	background-color: inherit!important;
+	color: inherit!important;
+	cursor: pointer;
+}
+.profile-popup{
+    position:fixed;
+    top:58px;
+    left:75%;
+    width:320px;
+    background-color: $primaryColor;
+    z-index:5;
+    border: 1px solid $borderPrimaryColor;
+    box-shadow: 1px 1px 3px #f5f5f5;
+    display:flex;
+    flex-direction: column;
+    font-family: $font-family;
+    color: $primaryFontColor;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s ease,opacity 0.5s ease;
+}
+.description{
+    /* padding:10px; */
+}
+.profile-description{
+    display:flex;
+    flex-direction:flex-start;
+    justify-content: space-around;
+    align-items:center;
+    padding:10px; 
+    font-family: $font-family--Roboto;
+}
+.description__p{
+    margin:0;
+}
+
+.description__p--minor{
+    font-size: 80%;
+}
+.description__p--major{
+    font-weight:600;
+}
+.arrow-up{
+    position:fixed;
+    top: 49px;
+    left:96%;
+    z-index:6;
+    width: 0; 
+    height: 0; 
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #f5f5f5;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s ease,opacity 0.5s ease;
+}
+.show-profile{
+    visibility:visible;
+    opacity:1;
+}
