@@ -63,7 +63,7 @@ class BaseHandler(webapp2.RequestHandler):
         :return: Dict to hold urls for login/logout
         """
         return {
-            'login_url':self.uri_for('login'),
+            'login_url': self.uri_for('login'),
             'logout_url': self.uri_for('logout')
         }
 
@@ -72,6 +72,9 @@ class BaseHandler(webapp2.RequestHandler):
         conn = Model(user['user'], user['pass'])
         connection = conn.connect
         return connection
+
+
+
 
 
 

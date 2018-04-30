@@ -1,0 +1,77 @@
+<div class="side-nav-container">
+	<div class="nav-container">
+		<div class="nav-container-header">
+			<div class ="logo">
+				<button type="button" name="button" class="page-header__show-button">
+					<i class="material-icons">menu</i>
+				</button>
+				<img class="logo__img" src="/static/images/logo.png">
+			</div>
+		</div>
+		<nav class="navigation">
+			<ul class="navigation__ul">
+				<li class="navigation__li"><a class="navigation__ul-a" href="">
+					<i class="material-icons">home</i><span class="navigation__span">Home</span></a>
+				</li>
+				<li class="navigation__li"><a class="navigation__ul-a" href="">
+					<i class="material-icons">home</i><span class="navigation__span">Ikwim Card</span></a>
+				</li>
+				<li class="navigation__li"><a class="navigation__ul-a" href="">
+					<i class="material-icons">home</i><span class="navigation__span">Ikwim Bond</span></a>
+				</li>
+				<!-- <h4 class="navigation__h4">Cards</h4>
+ -->				<li class="navigation__li"><a class="navigation__ul-a" href="">
+					<i class="material-icons">home</i><span class="navigation__span">Client Consumption</span></a>
+				</li>
+				<li class="navigation__li"><a class="navigation__ul-a" href="">
+					<i class="material-icons">home</i><span class="navigation__span"></span>Ikwim-card</a>
+				</li>
+				<li class="navigation__li"><a class="navigation__ul-a" href="">
+					<i class="material-icons">home</i><span class="navigation__span">Client Consumption</span></a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var navContainer = document.querySelector(".side-nav-container");
+	var navMenu = document.querySelector(".nav-container");
+    var toggleButton = document.querySelectorAll(".page-header__show-button");
+    var profilePopUp = document.querySelector(".profile-popup");
+    var profile = document.querySelector(".profile");
+    var arrowUp = document.querySelector(".arrow-up");
+ 
+
+    function togglePopup(){
+    	profilePopUp.classList.toggle("show-profile");
+    	arrowUp.classList.toggle("show-profile");
+    }
+
+    function toggleNavigation() {
+        navContainer.classList.toggle("show-navigation-container");
+        navMenu.classList.toggle("show-navigation");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === navContainer ) {
+            toggleNavigation();
+        }
+    }
+    
+    for (var i = 0; i < toggleButton.length; i++) {
+    	toggleButton[i].addEventListener("click", toggleNavigation);
+    }
+   
+    window.addEventListener("click", windowOnClick);
+    profile.addEventListener("click", togglePopup);
+
+	/*var navContainer = document.getElementsByClassName("side-nav-container")[0];
+	var toggleButton = document.getElementsByClassName("page-header__show-button");
+	for (var i = 0; i < toggleButton.length; i++) {
+		toggleButton[i].addEventListener("click",function(){
+        navContainer.classList.toggle("show-navigation");
+		})
+	}*/
+</script>
+

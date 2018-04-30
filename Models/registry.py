@@ -23,9 +23,9 @@ class Registry(object):
 
     @staticmethod
     def next_id(connection, table, column):
-        select_next_address_id = 'SELECT IFNULL(MAX(' + column + ' + 1),1) FROM ' + table
-        next_address_id = Model.select_address_id(select_next_address_id, connection)
-        return next_address_id
+        select_next_address_id = 'SELECT IFNULL(MAX(' + column + ' + 1),1) AS address_id FROM ' + table
+        next_address_id = Model.select_db(select_next_address_id, connection)
+        return next_address_id['address_id']
 
     @staticmethod
     def register(table, address, identity, connection):
@@ -37,7 +37,7 @@ class Registry(object):
             identity['address_id'] = next_address_id
             query_identity = Registry.register_query(identity, table)
             # return query_identity
-            if Model.insert(query_address, connection) and Model.insert(query_identity, connection):
+            if Model.execute_query(query_address, connection) and Model.execute_query(query_identity, connection):
                 Model.commit(connection)
                 return True
             else:
@@ -95,10 +95,10 @@ class Registry(object):
         query_address = Registry.register_query(address, table_addresses)
         query_account = Registry.register_query(account, table_account)
         query_account_identifier = 'INSERT INTO petrol_stations_db.account_identifier values()'
-        insert_address = Model.insert(query_address, connection)
-        insert_client = Model.insert(query_client, connection)
-        insert_account = Model.insert(query_account, connection)
-        insert_account_identifier = Model.insert(query_account_identifier, connection)
+        insert_address = Model.execute_query(query_address, connection)
+        insert_client = Model.execute_query(query_client, connection)
+        insert_account = Model.execute_query(query_account, connection)
+        insert_account_identifier = Model.execute_query(query_account_identifier, connection)
         if insert_address and insert_client and insert_account and insert_account_identifier:
             Model.commit(connection)
             return True
@@ -125,9 +125,13 @@ class Registry(object):
         titles = data['title_name']
         table = 'petrol_stations_db.titles'
         query = Registry.register_mutliple_title_query(company_id, titles, table)
-        is_titles_registerd = Model.insert(query, connection)
+        is_titles_registerd = Model.execute_query(query, connection)
         if is_titles_registerd:
             Model.commit(connection)
             return True
         else:
             return False
+
+    @staticmethod
+    def register_company_activity(activity, connection):
+        pass

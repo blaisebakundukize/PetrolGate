@@ -1,4 +1,5 @@
 import MySQLdb
+import MySQLdb.cursors
 
 
 class Model(object):
@@ -13,7 +14,7 @@ class Model(object):
     @property
     def connect(self):
         try:
-            self.connection = MySQLdb.connect(self.host, self.user, self.password)
+            self.connection = MySQLdb.connect(self.host, self.user, self.password, cursorclass=MySQLdb.cursors.DictCursor)
             return self.connection
         except MySQLdb.Error as error:
             print(error)
@@ -33,28 +34,39 @@ class Model(object):
         connection.rollback()
 
     @staticmethod
-    def insert(query, connection):
+    def execute_query(query, connection):
         cursor = connection.cursor()
         try:
             cursor.execute(query)
+            cursor.close()
             return True
         except MySQLdb.Error, e:
             print(e)
             return False
 
-    @staticmethod
-    def select_address_id(query, connection):
-        if connection:
-            cursor = connection.cursor()
-            try:
-                address_id = None
-                cursor.execute(query)
-                for idd in [int(r[0]) for r in cursor.fetchall()]:
-                    address_id = idd  # type: int
-                return address_id
-            except MySQLdb.Error, e:
-                print e
-                return None
+    # @staticmethod
+    # def insert(query, connection):
+    #     cursor = connection.cursor()
+    #     try:
+    #         cursor.execute(query)
+    #         return True
+    #     except MySQLdb.Error, e:
+    #         print(e)
+    #         return False
+
+    # @staticmethod
+    # def select_address_id(query, connection):
+    #     if connection:
+    #         cursor = connection.cursor()
+    #         try:
+    #             address_id = None
+    #             cursor.execute(query)
+    #             for idd in [int(r[0]) for r in cursor.fetchall()]:
+    #                 address_id = idd  # type: int
+    #             return address_id
+    #         except MySQLdb.Error, e:
+    #             print e
+    #             return None
 
     @staticmethod
     def select_db(query, connection):
@@ -73,38 +85,38 @@ class Model(object):
             except MySQLdb.Error, e:
                 print(e)
                 return None
-
-    @staticmethod
-    def save_user(query, connection):
-        if connection:
-            cursor = connection.cursor()
-            try:
-                cursor.execute(query)
-                return True
-            except MySQLdb.Error, e:
-                print(e)
-
-    @staticmethod
-    def update(query, connection):
-        if connection:
-            cursor = connection.cursor()
-            try:
-                cursor.execute(query)
-                return True
-            except MySQLdb.Error, e:
-                print(e)
-                return False
-
-    @staticmethod
-    def drop_user(query, connection):
-        if connection:
-            cursor = connection.cursor()
-            try:
-                cursor.execute(query)
-                return True
-            except MySQLdb.Error, e:
-                print(e)
-                return False
+    #
+    # @staticmethod
+    # def save_user(query, connection):
+    #     if connection:
+    #         cursor = connection.cursor()
+    #         try:
+    #             cursor.execute(query)
+    #             return True
+    #         except MySQLdb.Error, e:
+    #             print(e)
+    #
+    # @staticmethod
+    # def update(query, connection):
+    #     if connection:
+    #         cursor = connection.cursor()
+    #         try:
+    #             cursor.execute(query)
+    #             return True
+    #         except MySQLdb.Error, e:
+    #             print(e)
+    #             return False
+    #
+    # @staticmethod
+    # def drop_user(query, connection):
+    #     if connection:
+    #         cursor = connection.cursor()
+    #         try:
+    #             cursor.execute(query)
+    #             return True
+    #         except MySQLdb.Error, e:
+    #             print(e)
+    #             return False
 
 
 

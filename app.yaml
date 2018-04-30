@@ -30,22 +30,7 @@ handlers:
   script: Controllers.login.app
   secure: always
 
-- url: /register
-  script: Controllers.register.app
-  secure: always
-- url: /register/company
-  script: Controllers.register.app
-  secure: always
-- url: /register/employee
-  script: Controllers.register.app
-  secure: always
-- url: /register/user
-  script: Controllers.register.app
-  secure: always
-- url: /register/title
-  script: Controllers.register.app
-  secure: always
-- url: /register/client
+- url: /register/(.*)
   script: Controllers.register.app
   secure: always
 

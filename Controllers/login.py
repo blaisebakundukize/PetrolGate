@@ -1,31 +1,49 @@
 import webapp2
+import jinja2
+import os
 from Infrastructure.read_json import ExtractData
 from Infrastructure.session import BaseHandler
 from Infrastructure.hard_guess import HardGuess
 from Models.user import User
 from Infrastructure.session import user_required
+from Infrastructure.config import webapp2_config
+
+
+JINJA_ENVIRONMENT = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__) + '../templates'),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True)
 
 
 class LoginHandler(BaseHandler):
     def get(self):
-        self.response.headers['Content-Type'] = 'text/plain'
+        # self.response.headers['Content-Type'] = 'text/plain'
+        # template = JINJA_ENVIRONMENT.get_template('modal.html')
+        # self.response.write(template.render())
         self.response.write(self.get_user())
-        # self.response.write(conn)
+        # self.response.write()
+        self.response.write("connection established")
 
     def post(self):
         self.response.headers['Content-Type'] = 'application/json'
-        credentials = self.request.body
-        user = ExtractData.load_json(credentials)
-        username = user['credentials'][0]['username']
-        password = user['credentials'][0]['password']
+        self.response.headers['Access-Control-Allow-Origin'] = '*'
+        credentials = dict(self.request.POST)
+        username = credentials['username']
+        password = credentials['password']
         is_password_valid = HardGuess.check_password(password)
         if is_password_valid:
             password = HardGuess.secure_data(password)
-            is_logged = User.login(username, password)
-            if is_logged:
-                user = {'user': username, 'pass': password}
+            connection = User.login(username, password)
+            if connection is not None:
+                ids = User.get_ids(username, connection)
+                employee = ids['employee_id']
+                company = ids['company_id']
+                user = {'user': username, 'pass': password, 'employee_id': employee, 'company_id': company}
                 self.session['user_id'] = user
                 self.response.write('session is set')
+            else:
+                # username or password not valid
+                self.response.write('Username or password is not valid')
         else:
             # password should contains at least one capital letter, one digit, and not less than 8 characters
             self.response.write('password is not valid')
@@ -39,17 +57,10 @@ class LogoutHandler(BaseHandler):
         self.response.write('User logged out')
 
 
-key = '51336f49-063e-4d2b-ba06-6e0410113c64'
-config = {}
-config['webapp2_extras.sessions'] = {
-    'secret_key': key,
-    # 'backends': {'securecookie': 'webapp2_extras.sessions.SecureCookieSessionFactory'}
-}
-
 app = webapp2.WSGIApplication([
     ('/login', LoginHandler),
     ('/logout', LogoutHandler)
-], config=config, debug=True)
+], config=webapp2_config, debug=True)
 
 
 
