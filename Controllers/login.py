@@ -7,6 +7,7 @@ from Infrastructure.hard_guess import HardGuess
 from Models.user import User
 from Infrastructure.session import user_required
 from Infrastructure.config import webapp2_config
+import json
 
 
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -31,6 +32,7 @@ class LoginHandler(BaseHandler):
         username = credentials['username']
         password = credentials['password']
         is_password_valid = HardGuess.check_password(password)
+        response_obj = ExtractData.login_response(False)
         if is_password_valid:
             password = HardGuess.secure_data(password)
             connection = User.login(username, password)
@@ -38,16 +40,11 @@ class LoginHandler(BaseHandler):
                 ids = User.get_ids(username, connection)
                 employee = ids['employee_id']
                 company = ids['company_id']
+                employee_names = ids['first_name'] + ' ' + ids['last_name']
                 user = {'user': username, 'pass': password, 'employee_id': employee, 'company_id': company}
                 self.session['user_id'] = user
-                self.response.write('session is set')
-            else:
-                # username or password not valid
-                self.response.write('Username or password is not valid')
-        else:
-            # password should contains at least one capital letter, one digit, and not less than 8 characters
-            self.response.write('password is not valid')
-            pass
+                response_obj = ExtractData.login_response(True, employee_names)
+        self.response.write(json.dumps(response_obj))
 
 
 class LogoutHandler(BaseHandler):

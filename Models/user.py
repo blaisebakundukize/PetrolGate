@@ -20,7 +20,7 @@ class User(object):
     def get_ids(username, connection):
         employee = 'petrol_stations_db.employees'
         title = 'petrol_stations_db.titles'
-        query = 'SELECT '+employee+ '.employee_id, ' + title + '.company_id from '+employee+' INNER JOIN '+title+ ' ON ' +employee+ '.title_id = ' +title+ '.title_id WHERE '+employee+ '.user = "'+username+'"'
+        query = 'SELECT '+employee+ '.employee_id, '+employee+ '.first_name, '+employee+ '.last_name,' + title + '.company_id from '+employee+' INNER JOIN '+title+ ' ON ' +employee+ '.title_id = ' +title+ '.title_id WHERE '+employee+ '.user = "'+username+'"'
         ids = Model.select_db(query, connection)
         return ids
 
@@ -32,8 +32,8 @@ class User(object):
 
     @staticmethod
     def register_credential(data, connection):
-        username = data['credentials'][0]['username']
-        password = data['credentials'][0]['password']
+        username = data['credentials']['username']
+        password = data['credentials']['password']
         user = User.get_by_username(username, connection)
         if user is None:
             is_password_valid = HardGuess.check_password(password)
@@ -46,9 +46,9 @@ class User(object):
 
     @staticmethod
     def save(data, conn):
-        username = data['credentials'][0]['username']
-        password = data['credentials'][0]['password']
-        employee_id = data['credentials'][0]['employee_id']
+        username = data['credentials']['username']
+        password = data['credentials']['password']
+        employee_id = data['credentials']['employee_id']
         hashed_pass = HardGuess.secure_data(password)
         query_create_user = 'CREATE USER "'+username+'"@"LOCALHOST" IDENTIFIED BY "'+hashed_pass+'"'
         is_user_registered = Model.execute_query(query_create_user, conn)

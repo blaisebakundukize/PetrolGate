@@ -9,6 +9,11 @@ class Registry(object):
 
     @staticmethod
     def register_query(values, table):
+        """ process dictionary data and return an insert query
+        :param values: dictionary data
+        :param table: name of table
+        :return: query processed from the given data
+        """
         cols = '('
         v = 'VALUES ('
         length = len(values)
@@ -49,16 +54,16 @@ class Registry(object):
     @staticmethod
     def register_company(data, connection):
         table = 'petrol_stations_db.petrol_station_companies'
-        company = data['company'][0]
-        address = data['address'][0]
+        company = data['company']
+        address = data['address']
         is_registered = Registry.register(table, address, company, connection)
         return is_registered
 
     @staticmethod
     def register_employee(data, connection):
         table = 'petrol_stations_db.employees'
-        address = data['address'][0]
-        employee = data['employee'][0]
+        address = data['address']
+        employee = data['employee']
         is_registered = Registry.register(table, address, employee, connection)
         return is_registered
 
@@ -74,9 +79,9 @@ class Registry(object):
         next_account_identifier = Registry.next_id(connection, table_account_identifier, account_number_column)
         next_address_id = Registry.next_id(connection, table_addresses, column_address_id)
         next_client_id = Registry.next_id(connection, table_client, column_client_id)
-        address = data['address'][0]
-        client = data['client'][0]
-        account = data['account'][0]
+        address = data['address']
+        client = data['client']
+        account = data['account']
         company = client['company_id']
 
         account_number = Generator.generate_account(company, next_account_identifier)
@@ -91,6 +96,16 @@ class Registry(object):
 
     @staticmethod
     def new_account_number(connection, client, address, account, table_client, table_addresses, table_account):
+        """ call functions for forming query, and registering new client into database along with addresses and account
+        :param connection: connection to the server
+        :param client: client information in type of dict
+        :param address: addresses in type of dict
+        :param account: account number
+        :param table_client: table name of client
+        :param table_addresses: table name of addresses
+        :param table_account: table name of accounts
+        :return: true if query execution is successful, or False conversely
+        """
         query_client = Registry.register_query(client, table_client)
         query_address = Registry.register_query(address, table_addresses)
         query_account = Registry.register_query(account, table_account)
@@ -107,31 +122,94 @@ class Registry(object):
             return False
 
     @staticmethod
-    def register_mutliple_title_query(company_id, data, table):
-        cols = '('
-        v = 'VALUES '
-        query = 'INSERT INTO ' + table + '(title_name, company_id)'
+    def mutliple_line_query(company_id, data, table, columns):
+        """ process data which is a List type, and return query
+        :param company_id: company id to where each item from list goes with
+        :param data: values in type of List
+        :param table: name of table
+        :param columns: names of columns
+        :return: insert query
+        """
+
+        v = ' VALUES '
+        query = 'INSERT INTO ' + table + columns
         length = len(data)
-        for index, title in enumerate(data):
-            v += '("' + str(title) + '",' + '"' + str(company_id) + '")'
+        for index, item in enumerate(data):
+            v += '("' + str(item) + '",' + '"' + str(company_id) + '")'
             if index != length - 1:
                 v += ','
         query += v
         return query
 
     @staticmethod
-    def register_company_post_title(data, connection):
-        company_id = data['company'][0]['company_id']
-        titles = data['title_name']
+    def register_company_post_title(company_id, title, connection):
+        """ call functions, one for forming an insert query, and another for executing query
+        :param company_id: company Identification in database
+        :param title: values in type of List
+        :param connection: connection to the server
+        :return: true if query execution is successful, or False conversely
+        """
+        titles = title['title_name'].split(',')
         table = 'petrol_stations_db.titles'
-        query = Registry.register_mutliple_title_query(company_id, titles, table)
+        columns = ' (title_name, company_id)'
+        query = Registry.mutliple_line_query(company_id, titles, table, columns)
         is_titles_registerd = Model.execute_query(query, connection)
         if is_titles_registerd:
             Model.commit(connection)
             return True
         else:
+            Model.rollback(connection)
             return False
 
     @staticmethod
-    def register_company_activity(activity, connection):
-        pass
+    def register_company_activity(company_id, activity, connection):
+        """ call functions, one for forming an insert query, and another for executing query
+        :param company_id: company Identification in database
+        :param activity: values in type of List
+        :param connection: connection to the server
+        :return: true if query execution is successful, or False conversely
+        """
+        activities = activity['activity'].split(',')
+        table = 'petrol_stations_db.activities'
+        columns = ' (name, company_id)'
+        query = Registry.mutliple_line_query(company_id, activities, table, columns)
+        is_activities_registered = Model.execute_query(query, connection)
+        if is_activities_registered:
+            Model.commit(connection)
+            return True
+        else:
+            Model.rollback(connection)
+            return False
+
+    @staticmethod
+    def insert_from_list_dict(data, company_id, table):
+        len_one_dict = len(data[0])
+        length = len(data)
+        i = 0
+        query = 'INSERT INTO ' + table
+        values = ' VALUES '
+        columns = ' ('
+        cls = data[0].keys()
+        for index, key in enumerate(cls):
+            columns += key + ','
+            if index == len_one_dict - 1:
+                columns += 'company_id)'
+        for dic in data:
+            i = i + 1
+            for index, (k, v) in enumerate(dic.items()):
+                if index == 0:
+                    values += '('
+                values += '"' + str(v) + '",'
+                if index == len_one_dict - 1:
+                    values += '"'+str(company_id)+'")'
+                    if i != length:
+                        values += ','
+        query += columns + values
+        return query
+
+    @staticmethod
+    def register_station(company_id, station, connection):
+        table = 'petrol_stations_db.stations'
+        stations = station['stations']
+        query = Registry.insert_from_list_dict(stations, company_id, table)
+        return query

@@ -73,6 +73,16 @@ class BaseHandler(webapp2.RequestHandler):
         connection = conn.connect
         return connection
 
+    def get_user_id(self):
+        user = self.get_user()
+        user_id = user['employee_id']
+        return user_id
+
+    def get_user_company_id(self):
+        user = self.get_user()
+        company_id = user['company_id']
+        return company_id
+
 
 
 

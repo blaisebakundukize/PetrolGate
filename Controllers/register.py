@@ -21,11 +21,10 @@ class RegisterCompanyHandler(BaseHandler):
         data = self.request.body
         company = ExtractData.load_json(data)
         conn = self.get_connection()
-        if conn:
-            is_registered = Registry.register_company(company, conn)
-            response_obj = ExtractData.response(is_registered)
-            self.response.write(json.dumps(response_obj))
+        is_registered = Registry.register_company(company, conn)
         conn.close()
+        response_obj = ExtractData.response(is_registered)
+        self.response.write(json.dumps(response_obj))
 
 
 class RegisterCompanyPostTitle(BaseHandler):
@@ -36,13 +35,13 @@ class RegisterCompanyPostTitle(BaseHandler):
     @user_required
     def post(self):
         self.response.headers['Content-Type'] = 'application/json'
-        data = self.request.body
-        titles = ExtractData.load_json(data)
+        titles = dict(self.request.POST)
         conn = self.get_connection()
-        is_registered = Registry.register_company_post_title(titles, conn)
+        company_id = self.get_user_company_id()
+        is_registered = Registry.register_company_post_title(company_id, titles, conn)
+        conn.close()
         response_obj = ExtractData.response(is_registered)
         self.response.write(json.dumps(response_obj))
-        conn.close()
 
 
 class RegisterCompanyActivity(BaseHandler):
@@ -53,11 +52,32 @@ class RegisterCompanyActivity(BaseHandler):
     @user_required
     def post(self):
         self.response.headers['Content-type'] = 'application/json'
-        data = self.request.body
-        activity = ExtractData.load_json(data)
+        activities = dict(self.request.POST)
         conn = self.get_connection()
-        is_registered = Registry.register_company_activity(activity, conn)
-        pass
+        company_id = self.get_user_company_id()
+        is_registered = Registry.register_company_activity(company_id, activities, conn)
+        conn.close()
+        response_obj = ExtractData.response(is_registered)
+        self.response.write(json.dumps(response_obj))
+
+
+class RegisterCompanyStation(BaseHandler):
+    @user_required
+    def get(self):
+        data = self.request.body
+        self.response.write(data)
+
+    # @user_required
+    def post(self):
+        self.response.headers['Content-type'] = 'application/json'
+        data = self.request.body
+        stations = ExtractData.load_json(data)
+        self.response.write(type(stations['stations']))
+        conn = self.get_connection()
+        company_id = self.get_user_company_id()
+        is_registered = Registry.register_station(company_id, stations, conn)
+        self.response.write(is_registered)
+        conn.close()
 
 
 class RegisterEmployeeHandler(BaseHandler):
@@ -72,10 +92,9 @@ class RegisterEmployeeHandler(BaseHandler):
         employee = ExtractData.load_json(data)
         conn = self.get_connection()
         is_registered = Registry.register_employee(employee, conn)
+        conn.close()
         response_obj = ExtractData.response(is_registered)
         self.response.write(json.dumps(response_obj))
-        # self.response.write(is_registered)
-        conn.close()
 
 
 class RegisterUserHandler(BaseHandler):
@@ -91,12 +110,9 @@ class RegisterUserHandler(BaseHandler):
         user = ExtractData.load_json(data)
         conn = self.get_connection()
         is_registered = User.register_credential(user, conn)
-        self.response.write(is_registered)
+        conn.close()
         response_obj = ExtractData.response(is_registered)
         self.response.write(json.dumps(response_obj))
-        self.response.write(is_registered)
-        conn.close()
-        pass
 
 
 class RegisterClientHandler(BaseHandler):
@@ -111,16 +127,16 @@ class RegisterClientHandler(BaseHandler):
         client = ExtractData.load_json(data)
         conn = self.get_connection()
         is_registered = Registry.register_client(client, conn)
+        conn.close()
         response_obj = ExtractData.response(is_registered)
         self.response.write(json.dumps(response_obj))
-        # self.response.write(is_registered)
-        conn.close()
 
 
 app = webapp2.WSGIApplication([
     ('/register/company', RegisterCompanyHandler),
     ('/register/title', RegisterCompanyPostTitle),
-    ('/register/activity', RegisterEmployeeHandler),
+    ('/register/activity', RegisterCompanyActivity),
+    ('/register/station', RegisterCompanyStation),
     ('/register/employee', RegisterEmployeeHandler),
     ('/register/user', RegisterUserHandler),
     ('/register/client', RegisterClientHandler)
