@@ -1,7 +1,4 @@
-   *{
-        box-sizing: border-box;
-        margin: 0;
-    }
+
     rs-modal {
         position: fixed;
         left: 0;
@@ -12,20 +9,25 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: opacity 0.25s 0s, transform 0.25s;
-        z-index : 99999999;
+        z-index : 2;
         pointer-events: none;
         opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
     }
     rs-modal[visible="true"]{
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
     }
     rs-modal-contents{
-        background-color: #fefefe;
+        background-color: $primaryColor;
         display: block;
         margin: 16px;
         min-width: 200px;
+        font-family: $font-family--Roboto;
     }
     rs-modal-header{
         position: relative;
@@ -34,7 +36,8 @@
         width: 100%;
         min-height: 40px;
         padding: 8px;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid $borderPrimaryColor;
+        color: $primaryFontColor;
     }
     .modal-header-title{
         font-size: 16px;
@@ -44,16 +47,20 @@
         padding-right: 24px;
     }
     .modal-header-close{
-        font-size: 24px;
-        line-height: 24px;
+        font-size: 30px;
+        line-height: 30px;
         cursor: pointer;
         color: #000;
         float: right;
         position: absolute;
-        right: 8px;
-        top: 8px;
+        right: 4px;
+        top: 4px;
         background-color: transparent;
         border: none;
+        outline: none;
+    }
+    .modal-header-close:hover {
+        color: $dangerColor;
     }
     rs-modal-body{
         display: block;

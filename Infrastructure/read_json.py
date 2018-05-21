@@ -25,7 +25,7 @@ class ExtractData(object):
     def login_response(success, name="empty"):
         response_obj = {
             "success": success,
-            "errorMessage":"Username or password is not valid",
+            "errorMessage": "Username or password is not valid",
             "responseDate": {
                 "name": "fail",
                 "photo": "fail"

@@ -1,0 +1,20 @@
+.filters-container{
+	display: flex;
+	height: 50px;
+	width: 100%;
+	justify-content: space-around;
+}
+.filters{
+	display:flex;
+	flex-wrap: wrap;
+	flex-basis: 50%;
+	align-items: center;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+.left-filters{
+	justify-content: flex-start;
+}
+.right-filters{
+	justify-content: flex-end;
+}

@@ -1,0 +1,27 @@
+.table {
+  width: 70%;
+  border-collapse: collapse;
+  border: 1px solid #E8E8E8;
+  /*  table-layout: auto; */
+  overflow: auto;
+  font-size: 90%; }
+
+.table tr:nth-of-type(odd) {
+  background: #F5F5F5; }
+
+.table th {
+  color: black;
+  background-color: #FFFFFF;
+  font-weight: 300; }
+
+.table td, .table th {
+  padding: 5px;
+  border: 1px solid #E8E8E8;
+  text-align: center; }
+
+.table td {
+  color: #808080; }
+
+.table tr:hover td {
+  color: white;
+  background-color: #0080c0; }

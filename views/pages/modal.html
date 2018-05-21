@@ -1,36 +1,11 @@
-{% extends "views/templates/page-template-partial.html" %}
+{% extends "templates/page-template-partial.html" %}
 {% block PageTitle %}
-	Home
+	Modal
 {% endblock %}
 {% block header %}
-{% include "views/templates/page-header-partial.html"%}
+{% include "templates/page-header-partial.html"%}
 {% endblock %}
 {% block pageContent %}
-{% include "views/templates/side-nav-partial.html"%}
-
-
-<button id="button">Open modal</button>
-
-
-<rs-modal title="Some other title contents" role="dialog" >
-	<rs-modal-contents> 
-
-		<rs-modal-body>
-			<div>Body</div>
-			<div>Body</div>
-		</rs-modal-body>
-
-	</rs-modal-contents>
-
-</rs-modal>
-
-<style type="text/css">
-{% include "sass/includes/modal.css" %}	
-</style>
-
-
-
-
-
-
+{% include "templates/side-nav-partial.html"%}
+{% include "templates/modal-custom.html"%}
 {% endblock %}

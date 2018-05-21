@@ -1,0 +1,42 @@
+.filter-widget{
+	height: 40px;
+	width: 200px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	border: 1px solid $borderPrimaryColor;
+    border-radius: 2px;
+    background-color: #fefefe;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-holder{
+	height:100%;
+	width: 70%;
+}
+.button-holder{
+	width:30%;
+	height:100%;
+	padding-top:3px;
+    padding-left:1px;
+    padding-right:1px;
+	background-color: inherit;
+	border-left: 1px solid $borderPrimaryColor;
+}
+.filter-button{
+	border: none;
+    width: 44%;
+    height: 43%;
+    background-color: $borderPrimaryColor;
+    color: #adadad;
+    padding-top:-1px;
+    outline:none;
+}
+.filter-button:hover{
+    background-color: $submitColor--hover; 
+    color: $primaryColor;
+}
+.active-filter{
+	background-color: $submitColor--hover; 
+    color: $primaryColor;
+}

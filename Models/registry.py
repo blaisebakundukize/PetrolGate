@@ -1,5 +1,7 @@
 from Models.modelFetch import Model
 from Infrastructure.generator import Generator
+import uuid
+import re
 
 
 class Registry(object):
@@ -15,7 +17,7 @@ class Registry(object):
         :return: query processed from the given data
         """
         cols = '('
-        v = 'VALUES ('
+        v = ' VALUES ('
         length = len(values)
         for index, (key, value) in enumerate(values.items()):
             cols += key + ''
@@ -28,67 +30,73 @@ class Registry(object):
 
     @staticmethod
     def next_id(connection, table, column):
-        select_next_address_id = 'SELECT IFNULL(MAX(' + column + ' + 1),1) AS address_id FROM ' + table
-        next_address_id = Model.select_db(select_next_address_id, connection)
-        return next_address_id['address_id']
+        select_next_id = 'SELECT IFNULL(MAX(' + column + ' + 1),1) AS id FROM ' + table
+        next_id = Model.select_db(select_next_id, connection)
+        return next_id['id']
 
     @staticmethod
     def register(table, address, identity, connection):
-        addresses_table = 'petrol_stations_db.addresses'
+        addresses_table = 'addresses'
+        address_id = 'UUID_TO_BIN("'+str(uuid.uuid1())+'")'
+        address['address_id'] = 'ADDRESS(UUID)'
+        identity['address_id'] = 'ADDRESS(UUID)'
         query_address = Registry.register_query(address, addresses_table)
-        column_address_id = 'address_id'
-        next_address_id = Registry.next_id(connection, addresses_table, column_address_id)
-        if next_address_id:
-            identity['address_id'] = next_address_id
-            query_identity = Registry.register_query(identity, table)
-            # return query_identity
-            if Model.execute_query(query_address, connection) and Model.execute_query(query_identity, connection):
-                Model.commit(connection)
-                return True
-            else:
-                Model.rollback(connection)
-                return False
+        query_identity = Registry.register_query(identity, table)
+
+        # replace 'ADDRESS(UUID)' with a valid uuid
+        query_address = query_address.replace('"ADDRESS(UUID)"', address_id)
+        query_identity = query_identity.replace('"ADDRESS(UUID)"', address_id)
+
+        if Model.execute_query(query_address, connection) and Model.execute_query(query_identity, connection):
+            Model.commit(connection)
+            return True
         else:
+            Model.rollback(connection)
             return False
 
     @staticmethod
     def register_company(data, connection):
-        table = 'petrol_stations_db.petrol_station_companies'
-        company = data['company']
-        address = data['address']
+        table = 'petrol_station_companies'
+        company = data['company_identification']
+        address = data['company_address']
         is_registered = Registry.register(table, address, company, connection)
         return is_registered
 
     @staticmethod
     def register_employee(data, connection):
-        table = 'petrol_stations_db.employees'
+        table = 'employees'
         address = data['address']
         employee = data['employee']
         is_registered = Registry.register(table, address, employee, connection)
         return is_registered
 
     @staticmethod
-    def register_client(data, connection):
-        table_client = 'petrol_stations_db.clients'
-        table_addresses = 'petrol_stations_db.addresses'
-        table_account_identifier = 'petrol_stations_db.account_identifier'
-        table_account = 'petrol_stations_db.accounts'
+    def register_client(company_id, data, connection):
+        table_client = 'clients'
+        table_addresses = 'addresses'
+        table_account_identifier = 'account_identifier'
+        table_account = 'accounts'
         account_number_column = 'account_number'
-        column_address_id = 'address_id'
-        column_client_id = 'client_id'
+
         next_account_identifier = Registry.next_id(connection, table_account_identifier, account_number_column)
-        next_address_id = Registry.next_id(connection, table_addresses, column_address_id)
-        next_client_id = Registry.next_id(connection, table_client, column_client_id)
+
         address = data['address']
         client = data['client']
         account = data['account']
-        company = client['company_id']
 
-        account_number = Generator.generate_account(company, next_account_identifier)
+        # add company id on client and account details
+        client['company_id'] = company_id
+        account['company_id'] = company_id
 
-        client['address_id'] = next_address_id
+        # genetate account number
+        account_number = Generator.generate_account(company_id, next_account_identifier)
         account['account_number'] = account_number
-        account['client_id'] = next_client_id
+
+        # add fake UUID keys on client, address, and account details
+        client['address_id'] = 'ADDRESS(UUID)'
+        client['client_id'] = 'CLIENT(UUID)'
+        address['address_id'] = 'ADDRESS(UUID)'
+        account['client_id'] = 'CLIENT(UUID)'
 
         is_registered = Registry.new_account_number(connection, client, address, account,
                                                     table_client, table_addresses, table_account)
@@ -106,10 +114,21 @@ class Registry(object):
         :param table_account: table name of accounts
         :return: true if query execution is successful, or False conversely
         """
-        query_client = Registry.register_query(client, table_client)
+
+        address_id = 'UUID_TO_BIN("' + str(uuid.uuid1()) + '")'
+        client_id = 'UUID_TO_BIN("' + str(uuid.uuid1()) + '")'
+
         query_address = Registry.register_query(address, table_addresses)
+        query_client = Registry.register_query(client, table_client)
         query_account = Registry.register_query(account, table_account)
-        query_account_identifier = 'INSERT INTO petrol_stations_db.account_identifier values()'
+
+        # replace 'ADDRESS(UUID)' with a valid uuid
+        query_address = query_address.replace('"ADDRESS(UUID)"', address_id)
+        query_client = query_client.replace('"ADDRESS(UUID)"', address_id)
+        query_client = query_client.replace('"CLIENT(UUID)"', client_id)
+        query_account = query_account.replace('"CLIENT(UUID)"', client_id)
+
+        query_account_identifier = 'INSERT INTO account_identifier values()'
         insert_address = Model.execute_query(query_address, connection)
         insert_client = Model.execute_query(query_client, connection)
         insert_account = Model.execute_query(query_account, connection)
@@ -122,7 +141,7 @@ class Registry(object):
             return False
 
     @staticmethod
-    def mutliple_line_query(company_id, data, table, columns):
+    def insert_from_list(company_id, data, table, columns):
         """ process data which is a List type, and return query
         :param company_id: company id to where each item from list goes with
         :param data: values in type of List
@@ -150,16 +169,15 @@ class Registry(object):
         :return: true if query execution is successful, or False conversely
         """
         titles = title['title_name'].split(',')
-        table = 'petrol_stations_db.titles'
+        table = 'titles'
         columns = ' (title_name, company_id)'
-        query = Registry.mutliple_line_query(company_id, titles, table, columns)
+        query = Registry.insert_from_list(company_id, titles, table, columns)
         is_titles_registerd = Model.execute_query(query, connection)
         if is_titles_registerd:
             Model.commit(connection)
-            return True
         else:
             Model.rollback(connection)
-            return False
+        return is_titles_registerd
 
     @staticmethod
     def register_company_activity(company_id, activity, connection):
@@ -170,16 +188,15 @@ class Registry(object):
         :return: true if query execution is successful, or False conversely
         """
         activities = activity['activity'].split(',')
-        table = 'petrol_stations_db.activities'
+        table = 'activities'
         columns = ' (name, company_id)'
-        query = Registry.mutliple_line_query(company_id, activities, table, columns)
+        query = Registry.insert_from_list(company_id, activities, table, columns)
         is_activities_registered = Model.execute_query(query, connection)
         if is_activities_registered:
             Model.commit(connection)
-            return True
         else:
             Model.rollback(connection)
-            return False
+        return is_activities_registered
 
     @staticmethod
     def insert_from_list_dict(data, company_id, table):
@@ -209,7 +226,12 @@ class Registry(object):
 
     @staticmethod
     def register_station(company_id, station, connection):
-        table = 'petrol_stations_db.stations'
+        table = 'stations'
         stations = station['stations']
         query = Registry.insert_from_list_dict(stations, company_id, table)
-        return query
+        is_stations_register = Model.execute_query(query, connection)
+        if is_stations_register:
+            Model.commit(connection)
+        else:
+            Model.rollback(connection)
+        return is_stations_register

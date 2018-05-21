@@ -1,0 +1,146 @@
+<h1 class="title">Client Registration</h1>
+<div class="tab-container">
+	<button id="tab1" class="tab clickedTab">Company</button>
+	<button id="tab2" class="tab">Personal</button>
+</div>
+<div class="tab-content">
+	<div class="tab1">
+		<form class="general-form general-form--client company-registration-form">
+			<div class="forms-container">
+				<div class="forms">
+					<div class="forms-block">
+						<div class="form-header">
+							<h1 class="form-header__h1">Company Identification</h1>
+						</div>
+						<div class="forms-form">
+							<fieldset name="client_identification">
+								<label class="form-label" for="company_name">Name</label>
+						        <input type="text" placeholder="Name" name="name" required id="company_name" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="company-tin">TIN</label>
+						        <input type="number" placeholder="TIN" name="tin" required id="company_tin" class="form-element form-element--liquid-width">
+						    </fieldset>
+						</div>
+					</div>
+					<div class="forms-block">
+						<div class="form-header">
+							<h1 class="form-header__h1">Company Address</h1>
+						</div>
+						<div class="forms-form">
+							<fieldset name="client_address">
+								<label class="form-label" for="company_email">Email</label>
+								<input type="email" placeholder="Email" name="email" required id="company_email" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="company_district">District</label>
+						        <input type="text" placeholder="District" name="district" required id="company_district" class="form-element form-element--liquid-width">
+                                <label class="form-label" for="company_sector">Sector</label>
+						        <input type="text" placeholder = "Sector" name="sector" required id="company_sector" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="company_tel">Phone</label>
+						        <input type="tel" maxlength="10" placeholder="Phone" name="tel" required id="company_tel" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="account_type">Account Type</label>
+						        <select name="account_type" required id="account_type" class="form-element form-element--liquid-width">
+						        	<option>Account Type</option>
+							        <option value="bond">Bond</option>
+							        <option value="card">Card</option>
+							    </select>
+						    </fieldset>
+						</div>
+					</div>
+				</div>
+				<div class="forms-container-foot">
+					<input type="submit" class="form-element form-element--liquid-width form-element--submit form-element--submit--company-registration" name="" value="Register">
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="tab2">
+		<form class="general-form general-form--client company-registration-form">
+			<div class="forms-container">
+				<div class="forms">
+					<div class="forms-block">
+						<div class="form-header">
+							<h1 class="form-header__h1">Identification</h1>
+						</div>
+						<div class="forms-form">
+							<fieldset name="client_identification">
+								<label class="form-label" for="company_name">First Name</label>
+						        <input type="text" placeholder="First Name" name="first name" required id="first_name" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="last_name">Last Name</label>
+						        <input type="text" placeholder="Last Name" name="last_name" required id="last_name" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="client_ID">ID</label>
+						        <input type="number" placeholder="ID Number" name="client_ID" required id="client_ID" class="form-element form-element--liquid-width">
+						    </fieldset>
+						</div>
+					</div>
+					<div class="forms-block">
+						<div class="form-header">
+							<h1 class="form-header__h1">Address</h1>
+						</div>
+						<div class="forms-form">
+							<fieldset name="client_address">
+								<label class="form-label" for="email">Email</label>
+								<input type="email" placeholder="Email" name="email" required id="email" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="district">District</label>
+						        <input type="text" placeholder="District" name="district" required id="district" class="form-element form-element--liquid-width">
+                                <label class="form-label" for="sector">Sector</label>
+						        <input type="text" placeholder = "Sector" name="sector" required id="sector" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="tel">Phone</label>
+						        <input type="tel" maxlength="10" placeholder="Phone" name="tel" required id="tel" class="form-element form-element--liquid-width">
+						        <label class="form-label" for="account_type">Phone</label>
+						        <select name="account_type" required id="account_type" class="form-element form-element--liquid-width">
+						        	<option>Account Type</option>
+							        <option value="bond">Bond</option>
+							        <option value="card">Card</option>
+							    </select>
+						    </fieldset>
+						</div>
+					</div>
+				</div>
+				<div class="forms-container-foot">
+					<input type="submit" class="form-element form-element--liquid-width form-element--submit form-element--submit--company-registration" name="" value="Register">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	class ClientRegistration{
+		constructor(){
+			this.addEventListeners();
+
+		}
+		addEventListeners(){
+			let tabs = document.getElementsByClassName("tab");
+			for (var i = 0; i < tabs.length; i++) {
+				tabs[i].addEventListener("click",this.switchContent.bind(this));
+			}
+		}
+		switchContent(e){
+			let clickedButton = e.target.getAttribute("id");
+			e.target.classList.add("clickedTab");
+			let tabs = document.getElementsByClassName("tab");
+			for (let i = 0; i < tabs.length; i++) {
+				if (tabs[i].getAttribute("id")!== clickedButton) {
+					tabs[i].classList.remove("clickedTab");
+				}
+			}
+			let currentDiv = document.getElementsByClassName(clickedButton)[0];
+			let otherDivs = currentDiv.parentNode.children;
+			if (currentDiv.style.display == "none") {
+				currentDiv.style.display = "block";
+				for (var i = 0; i < otherDivs.length; i++) {
+					if (otherDivs[i] !== currentDiv) {
+						otherDivs[i].style.display = "none";
+					}
+				}
+			}else{
+				for (var i = 0; i < otherDivs.length; i++) {
+					if (otherDivs[i] !== currentDiv) {
+						otherDivs[i].style.display = "none";
+					}
+				}
+				currentDiv.style.display = "block";
+			}
+		}
+
+	}
+	new ClientRegistration();
+</script>

@@ -2,13 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5416ada0-6f20-457d-ab08-d54dccce4bce" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Controllers/stock.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/filters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/payment_options.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1912383.driveupload" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/5159405.driveupload" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/companies.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/actions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/register_company.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/hard_guess.py" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/hard_guess.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/read_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/read_json.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/session.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/modelFetch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/modelFetch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/registry.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/registry.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/common/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/common/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/common/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/common/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/includes/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/includes/_buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/includes/_modal-custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/includes/_modal-custom.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/includes/_modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/includes/_modal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/includes/_user-activity-partial.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/includes/_user-activity-partial.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/includes/modal.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/imports/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/imports/modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/imports/side-nav-partial.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/views/pages/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/views/pages/modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/views/templates/buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/views/templates/modal-custom.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/views/templates/modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/views/templates/page-header-partial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/views/templates/page-template-partial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/views/templates/side-nav-partial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/views/templates/user-activity-partial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/modal-custom.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/page-header-partial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/page-template-partial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/side-nav-partial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user-activity-partial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/modal.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,92 +62,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/user.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="66" column="43" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Controllers/users.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="session.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Infrastructure/session.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1445">
-              <caret line="87" selection-start-line="87" selection-end-line="87" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controllers/login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+            <state relative-caret-position="583">
+              <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="read_json.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Infrastructure/read_json.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Controllers/register.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="67" column="33" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registry.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Models/registry.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="215" lean-forward="true" selection-start-line="215" selection-end-line="215" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mysql_dbconfig.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/mysql_dbconfig.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="71" selection-start-line="4" selection-start-column="71" selection-end-line="4" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -112,11 +77,83 @@
       <file leaf-file-name="modelFetch.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/modelFetch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
-              <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+            <state relative-caret-position="53">
+              <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/user.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="session.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Infrastructure/session.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-289">
+              <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/pages/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stock.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/stock.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-activity-partial.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/templates/user-activity-partial.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Controllers/register.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registry.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/registry.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2244">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -130,17 +167,19 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>toUpperCase</find>
+      <find>Login</find>
+      <find>dataType</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/readme.md" />
-        <option value="$PROJECT_DIR$/Models/mysqyl.py" />
-        <option value="$PROJECT_DIR$/Controllers/companies.py" />
-        <option value="$PROJECT_DIR$/Controllers/main.py" />
-        <option value="$PROJECT_DIR$/Models/main.py" />
         <option value="$PROJECT_DIR$/Models/test.py" />
         <option value="$USER_HOME$/Desktop/bond/qr/modelLib.py" />
         <option value="$USER_HOME$/Desktop/bond/qr/appengine_config.py" />
@@ -149,30 +188,57 @@
         <option value="$PROJECT_DIR$/Models/mysql_connect.py" />
         <option value="$PROJECT_DIR$/Infrastructure/json" />
         <option value="$PROJECT_DIR$/Controllers/register_company.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/Infrastructure/generator.py" />
         <option value="$PROJECT_DIR$/Controllers/company_registry" />
         <option value="$PROJECT_DIR$/Models/company_registry" />
         <option value="$PROJECT_DIR$/Infrastructure/hash.py" />
-        <option value="$PROJECT_DIR$/Infrastructure/hard_guess.py" />
-        <option value="$PROJECT_DIR$/Infrastructure/config.py" />
         <option value="$PROJECT_DIR$/Controllers/users.py" />
-        <option value="$PROJECT_DIR$/Models/modelFetch.py" />
-        <option value="$PROJECT_DIR$/app.yaml" />
-        <option value="$PROJECT_DIR$/Infrastructure/session.py" />
+        <option value="$PROJECT_DIR$/Infrastructure/qrcode_content.py" />
+        <option value="$PROJECT_DIR$/Models/qrcode_content.py" />
         <option value="$PROJECT_DIR$/Infrastructure/read_json.py" />
-        <option value="$PROJECT_DIR$/Controllers/login.py" />
-        <option value="$PROJECT_DIR$/Models/user.py" />
-        <option value="$PROJECT_DIR$/Controllers/register.py" />
+        <option value="$PROJECT_DIR$/Controllers/qrcode_content.py" />
+        <option value="$PROJECT_DIR$/Models/paymentOptions.py" />
+        <option value="$PROJECT_DIR$/Infrastructure/generator.py" />
+        <option value="$PROJECT_DIR$/Infrastructure/hard_guess.py" />
         <option value="$PROJECT_DIR$/Models/registry.py" />
+        <option value="$PROJECT_DIR$/Controllers/stock.py" />
+        <option value="$PROJECT_DIR$/../Petrolgate-UI-UX-master/main.py" />
+        <option value="$PROJECT_DIR$/Infrastructure/filters.py" />
+        <option value="$PROJECT_DIR$/Infrastructure/config.py" />
+        <option value="$PROJECT_DIR$/views/pages/login.html" />
+        <option value="$PROJECT_DIR$/views/pages/registration.html" />
+        <option value="$PROJECT_DIR$/views/pages/employee-registration.html" />
+        <option value="$PROJECT_DIR$/views/pages/user-credentials.html" />
+        <option value="$PROJECT_DIR$/views/pages/preloader.html" />
+        <option value="$PROJECT_DIR$/views/pages/modal-test.html" />
+        <option value="$PROJECT_DIR$/views/pages/modal.html" />
+        <option value="$PROJECT_DIR$/views/pages/company_actions.html" />
+        <option value="$PROJECT_DIR$/views/pages/client_registration.html" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/views/templates/login-partial.html" />
+        <option value="$PROJECT_DIR$/scripts/bootstrap.js" />
+        <option value="$PROJECT_DIR$/scripts/imports/requests.js" />
+        <option value="$PROJECT_DIR$/scripts/imports/login-partial.js" />
+        <option value="$PROJECT_DIR$/views/templates/page-header-partial.html" />
+        <option value="$PROJECT_DIR$/Infrastructure/session.py" />
+        <option value="$PROJECT_DIR$/views/templates/user-activity-partial.html" />
+        <option value="$PROJECT_DIR$/views/pages/home.html" />
+        <option value="$PROJECT_DIR$/scripts/imports/company-registration-partial.js" />
+        <option value="$PROJECT_DIR$/Controllers/company_actions.py" />
+        <option value="$PROJECT_DIR$/app.yaml" />
+        <option value="$PROJECT_DIR$/Controllers/actions.py" />
+        <option value="$PROJECT_DIR$/Models/payment_options.py" />
+        <option value="$PROJECT_DIR$/Models/modelFetch.py" />
+        <option value="$PROJECT_DIR$/Models/user.py" />
+        <option value="$PROJECT_DIR$/Controllers/login.py" />
+        <option value="$PROJECT_DIR$/Controllers/register.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1051" />
-    <option name="height" value="691" />
+    <option name="x" value="-22" />
+    <option name="y" value="125" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -187,21 +253,6 @@
               <item name="PETROLGATE" type="b2602c69:ProjectViewProjectNode" />
               <item name="PETROLGATE" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="PETROLGATE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PETROLGATE" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PETROLGATE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PETROLGATE" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PETROLGATE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PETROLGATE" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -210,18 +261,24 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="ctype&#9;FILE&#9;file://C:/Python27/libs/_ctypes.lib" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE" />
-      <recent name="E:\Programming\IKWIM\test\IKWIM-CARD\controllers" />
+      <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE\Infrastructure" />
+      <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE\templates" />
+      <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE\views\templates" />
+      <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE\views\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE\static\scripts" />
       <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE\Models" />
+      <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE\Infrastructure" />
       <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE\Controllers" />
       <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE" />
-      <recent name="E:\Programming\full-stack\IKWIM\PETROLGATE\Infrastructure" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -359,15 +416,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49840257" visible="true" weight="0.14421669" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49840257" visible="true" weight="0.32869694" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3290735" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32755905" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32646048" />
       <window_info id="Structure" order="1" sideWeight="0.50159746" side_tool="true" weight="0.29472774" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.38740158" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -376,26 +434,26 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3281787" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.56377953" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29472774" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32755905" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32913387" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.38740158" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32913387" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -414,335 +472,298 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Models/registry.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/modelFetch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/mysql_dbconfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/modelFetch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/modelFetch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/mysql_dbconfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/modelFetch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/mysql_dbconfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/bond/qr/app.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="16" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/mysql/connector/connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/mysql/connector/version.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="28" column="6" lean-forward="true" selection-start-line="28" selection-start-column="6" selection-end-line="36" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/test.py" />
-    <entry file="file://$PROJECT_DIR$/appengine_config.py" />
-    <entry file="file://$USER_HOME$/Desktop/bond/qr/modelLib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/webapp2_extras/auth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="466" selection-start-line="466" selection-end-line="466" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/MySQLdb/times.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1662" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/MySQLdb/connections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3978">
-          <caret line="239" column="29" lean-forward="true" selection-start-line="239" selection-start-column="29" selection-end-line="239" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/MySQLdb/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1203" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/MySQLdb/converters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2495" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/MySQLdb/cursors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="288" column="23" selection-start-line="288" selection-start-column="23" selection-end-line="288" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/company_registry">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/webapp2_extras/sessions_memcache.py">
+    <entry file="file://$PROJECT_DIR$/views/pages/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <caret line="12" column="59" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/webapp2_extras/sessions.py">
+    <entry file="file://$PROJECT_DIR$/views/templates/page-template-partial.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1326">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="238">
+          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/hard_guess.py">
+    <entry file="file://$PROJECT_DIR$/Controllers/register.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="765">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/templates/user-activity-partial.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1711" />
+        <state relative-caret-position="34">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/login-partial.html" />
+    <entry file="file://$PROJECT_DIR$/static/scripts/views/pages/company-registration-partial.html" />
+    <entry file="file://C:/Python27/Lib/site-packages/webapp2_extras/jinja2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="157" column="65" selection-start-line="157" selection-start-column="63" selection-end-line="157" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html" />
+    <entry file="file://$PROJECT_DIR$/static/scripts/views/pages/employee-registration.html" />
+    <entry file="file://$PROJECT_DIR$/../Petrolgate-UI-UX-master/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="81" column="41" lean-forward="true" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/scripts/views/templates/page-template-partial.html" />
     <entry file="file://$PROJECT_DIR$/Infrastructure/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/register_company.py">
+    <entry file="file://$PROJECT_DIR$/static/scripts/views/pages/login.html" />
+    <entry file="file://$PROJECT_DIR$/Infrastructure/filters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        <state relative-caret-position="408">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/google-cloud-sdk/bin/dev_appserver.py">
+    <entry file="file://$PROJECT_DIR$/views/pages/registration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51" />
+        <state relative-caret-position="34">
+          <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/employee-registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/modal-test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/preloader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/user-credentials.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/client_registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/company_actions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/scripts/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2164">
+          <caret line="687" column="47" selection-start-line="687" selection-start-column="47" selection-end-line="687" selection-end-column="47" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        <state relative-caret-position="-249">
+          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/imports/requests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/login-partial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/page-header-partial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="3" column="46" lean-forward="true" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/register_company.py" />
+    <entry file="file://$PROJECT_DIR$/scripts/imports/login-partial.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="35" column="34" lean-forward="true" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/imports/company-registration-partial.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="45" lean-forward="true" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/company_actions.py" />
+    <entry file="file://$PROJECT_DIR$/views/templates/page-template-partial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        <state relative-caret-position="189">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/modelFetch.py">
+    <entry file="file://$PROJECT_DIR$/scripts/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+        <state relative-caret-position="17">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/actions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/mysql_dbconfig.py">
+    <entry file="file://$PROJECT_DIR$/Infrastructure/hard_guess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="71" selection-start-line="4" selection-start-column="71" selection-end-line="4" selection-end-column="71" />
+        <state relative-caret-position="765">
+          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/read_json.py">
+    <entry file="file://$PROJECT_DIR$/Models/payment_options.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        <state relative-caret-position="578">
+          <caret line="66" column="25" lean-forward="true" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Infrastructure/generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="14" column="50" lean-forward="true" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/registry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2244">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/stock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/user-activity-partial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Infrastructure/session.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        <state relative-caret-position="-289">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Controllers/users.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        <state relative-caret-position="-51">
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/modelFetch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -751,30 +772,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="66" column="43" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="243">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/register.py">
+    <entry file="file://$PROJECT_DIR$/Controllers/login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="67" column="33" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
+        <state relative-caret-position="583">
+          <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/registry.py">
+    <entry file="file://$PROJECT_DIR$/Models/mysql_dbconfig.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="215" lean-forward="true" selection-start-line="215" selection-end-line="215" />
+        <state relative-caret-position="198">
+          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/register.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,0 +1,130 @@
+.versement-container{
+  position:relative;
+  width:1200px;
+  padding:20px;
+}
+.versement-container-date,.versement-container-station{
+  width:100%;
+}
+.versement-container label{
+  display:inline-block;
+  width:9%;
+  font-size:90%;
+  color:#383838;
+}
+.versement-container-date input[type=date],.versement-container-station select{
+    width:15%;
+    border: 1px solid #E8E8E8; 
+    color:#808080;
+    height:35px;
+    margin-bottom:6px;
+    background-color: inherit;
+}
+.versement-container-table{
+  width:100%;
+}
+.versement-container-table table td{
+  background-color: rgb(255,255,255);
+  padding:1px;
+}
+.versement-container-table table{
+  margin-top:8px;
+  display:inline-block;
+  border: none;
+  width:91%;
+}
+.versement-container-plus-button{
+  display:inline-block;
+  border:none;
+  background-color:inherit;
+  vertical-align: 16px;
+  font-size:110%;
+  outline:none;
+}
+.versement-container-table table th{
+  width:13%;
+}
+.versement-container-table table td input,.versement-container-table table td select{
+    width:100%;
+    border: none; 
+    color:#808080;
+    height:35px;
+    padding-left: 6px;
+    font-size:100%;
+}
+.versement-container-table table td input{
+    font-size:110%;
+}
+.versement-container-table table td input[type=checkbox]{
+    height:auto;
+}
+.versement-container-table table td input:focus,.versement-container-table table td select:focus{
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+.versement-container button[type=submit]{
+    width:8%;
+    font-size:100%;
+    //background-color: inherit;
+    height:37px;
+    margin-bottom:6px;
+    display:block;
+    margin-left:83%;
+    border: 1px solid #E8E8E8;
+    color:#808080;
+    //font-weight: bold;
+    background-color:inherit;
+    transition:height 0.4s ease-out;
+    transition:background-color 0.4s ease-out;
+    transition:width 0.4s ease-out;
+    transition:margin-left 0.4s ease-out;
+}
+.versement-container button[type=submit]:hover{
+  height:38px;
+  width:10%;
+  border:2px solid #0080c0;
+  color:#0080c0;
+  margin-left:81%;
+  border-radius:4px;
+}
+.versement-container-table table .checkbox-cell{
+  width:4%;
+}
+.versement-container-table table input[type=checkbox]:focus{
+  box-shadow: none;
+}
+.new-filters{
+  height:37px;
+  width:100%;
+  position:relative;
+  background-color:#fefefe;
+}
+.new-filters-filter{
+  width:7%;
+  height:100%;
+  float:right;
+  margin-right:9%;
+  background-color:inherit;
+}
+.new-filters-filter .delete-button{
+  width:100%;
+  height:100%;
+  border: 1px solid #E8E8E8;
+  color:#808080;
+  font-weight: bold;
+  background-color:inherit;
+}
+.new-filters-filter .delete-button:hover{
+  border: 1px solid #ff6300;
+  color: #ff6300;
+}
+
+.material-icons1{
+   font-size:20px;
+   margin-left:-10px;
+   margin-right:7px;
+   vertical-align: text-bottom;
+}
+
+
+
+

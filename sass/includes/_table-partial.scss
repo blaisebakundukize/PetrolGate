@@ -1,0 +1,59 @@
+.table{
+    border-collapse: collapse;
+    border: 1px solid $borderPrimaryColor; 
+    table-layout: auto;
+    overflow:auto; 
+    background-color: #fefefe;
+    font-family: $font-family--Roboto;
+    font-size: $normalFontSize;
+    margin: auto auto;
+}
+.table tr:nth-of-type(odd) { 
+    background: $primaryBackgroudColor; 
+}
+.table th { 
+    color: black; 
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+.table td,.table th { 
+    border: 1px solid $borderPrimaryColor; 
+    text-align: center; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.table td{
+    color: $primaryFontColor;
+}
+.table tr:hover td{
+  color:#fff;
+  background-color:$submitColor--hover;
+}
+.table--special-row{
+  font-weight: bold;
+}
+.table--containg-elements td,.table--containg-elements th{
+  padding: 1px;
+}
+.table--small-width{
+ max-width: 900px;
+ min-width: 600px;
+}
+.table--medium-width{
+  max-width: 1000px;
+  min-width:700px;
+}
+.table--large-width{
+  max-width: 1200px;
+  min-width: 1000px;
+}
+.table--x-large-width{
+  max-width: 1400px;
+  min-width: 1000px;
+}
+.table--medium-width{
+  width: 1000px;
+}
+.fiter-tr td{
+  padding: 4px;
+}

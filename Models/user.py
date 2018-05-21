@@ -18,8 +18,8 @@ class User(object):
 
     @staticmethod
     def get_ids(username, connection):
-        employee = 'petrol_stations_db.employees'
-        title = 'petrol_stations_db.titles'
+        employee = 'employees'
+        title = 'titles'
         query = 'SELECT '+employee+ '.employee_id, '+employee+ '.first_name, '+employee+ '.last_name,' + title + '.company_id from '+employee+' INNER JOIN '+title+ ' ON ' +employee+ '.title_id = ' +title+ '.title_id WHERE '+employee+ '.user = "'+username+'"'
         ids = Model.select_db(query, connection)
         return ids
@@ -53,7 +53,7 @@ class User(object):
         query_create_user = 'CREATE USER "'+username+'"@"LOCALHOST" IDENTIFIED BY "'+hashed_pass+'"'
         is_user_registered = Model.execute_query(query_create_user, conn)
         if is_user_registered:
-            query_update = 'UPDATE petrol_stations_db.employees SET user = "'+username +'"where employee_id =' +str(employee_id)
+            query_update = 'UPDATE employees SET user = "'+username + '"where employee_id =' +str(employee_id)
             if Model.execute_query(query_update, conn):
                 Model.commit(conn)
             else:
@@ -62,6 +62,13 @@ class User(object):
                 Model.execute_query(drop_user, conn)
                 return False
         return is_user_registered
+
+    @staticmethod
+    def get_urls(employee_id, connection):
+        query = 'SELECT urls.url_name from urls INNER JOIN urls_for_employees ON urls.url_id = urls_for_employees.url_id WHERE urls_for_employees.employee_id = {0}'.format(employee_id)
+        urls = Model.select_db_many(query, connection)
+        urls = [item['url_name'] for item in urls]
+        return urls
 
     @staticmethod
     def grant_prev(privileges, connection):

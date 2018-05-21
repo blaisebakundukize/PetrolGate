@@ -22,6 +22,7 @@ handlers:
   upload: static/images/(.*)
   secure: always
 
+
 - url: /login
   script: Controllers.login.app
   secure: always
@@ -30,8 +31,20 @@ handlers:
   script: Controllers.login.app
   secure: always
 
-- url: /register/(.*)
+- url: /home
+  script: Controllers.login.app
+  secure: always
+
+- url: /registration/(.*)
   script: Controllers.register.app
+  secure: always
+
+- url: /stock/(.*)
+  script: Controllers.stock.app
+  secure: always
+
+- url: /company/(.*)
+  script: Controllers.actions.app
   secure: always
 
 - url: /(.*)

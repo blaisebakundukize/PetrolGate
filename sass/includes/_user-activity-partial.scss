@@ -50,6 +50,25 @@
 	color: $primaryFontColor;
 	font-family: $font-family--Roboto;
 }
+.activity--action{
+	width:150px;
+}
+.icon-wrapper--action{
+	width:50px;
+	height:50px;
+	border-radius: 25px;
+	padding:4px;
+}
+.activity-icon__i--action{
+	font-size: 40px;
+}
+.activity__h3--action{
+	font-size: 15px;
+}
+.activity__p--action{
+	font-size: $fontSizeSmall;
+   	display:none;
+}
 
 @media (max-width: 500px) {
 	.activity {

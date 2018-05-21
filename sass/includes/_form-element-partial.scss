@@ -1,0 +1,84 @@
+.form-element{
+	height: 40px;
+    border: 1px solid $borderPrimaryColor;
+    box-shadow: inset 0 0 4px $borderPrimaryColor;
+    border-radius: 3px;
+    padding: 6px 20px;
+    color:$primaryFontColor;
+    font-size: 16px;
+    font-family: 'Roboto',sans-serif;
+    background-color: #fff;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.form-element--full-width{
+    width: 100%;
+}
+.form-element--x-small-width{
+    width: 300px;
+}
+.form-element--small-width{
+    width:100%;
+    max-width: 400px;
+}
+.form-element--medium-width{
+    width:100%;
+    max-width: 500px;
+}
+.form-element--big-width{
+    width: 600px;
+}
+.form-element--liquid-width{
+    width: 100%;
+    max-width: 500px;
+}
+.form-element--search{
+    background-image: url('/static/images/searchicon.png');
+    background-position: 10px 15px; 
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    padding-left: 45px;
+}
+.form-element--filter{
+    height:38px;
+    margin:0;
+    box-shadow: none;
+    border-radius: 1px;
+    font-size:14px;
+}
+.form-element--filter:focus{
+   outline: none;
+}
+
+.form-element--filter-greater{
+    border: none;
+}
+.form-element--submit{
+    background-color: $submitColor;
+    color:$primaryColor;
+    border: none;
+    box-shadow: none;
+}
+.form-element--submit--company-registration{
+    margin:0;
+}
+.form-element--submit:hover{
+    background-color: $submitColor--hover;
+    transition: background-color 1s ease;
+}
+.form-element::placeholder{
+	color:#adadad;
+    font-size: 16px;
+    font-family: 'Roboto',sans-serif;
+}
+.form-element--filter::placeholder{
+    font-size:14px;
+}
+.form-element:focus{
+	outline-color: $submitColor;
+}
+.form-label{
+}
+@media (min-width: 500px) and (max-width: 900px) {}
+@media (max-width: 500px) {}

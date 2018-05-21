@@ -1,6 +1,14 @@
 .button{
-	height: 42px;
+	height: 40px;
 	width:100px;
+	margin-left : 3px;
+	color : $primaryColor;
+	transition: background-color 0.5s ease-out;
+	font-weight : bold;
+}
+.button--modal{
+	height: 30px;
+	width:70px;
 	margin-left : 3px;
 	color : $primaryColor;
 	transition: background-color 0.5s ease-out;
@@ -13,6 +21,9 @@
 .button--success{
 	@include button ($succesColor);
 }
+.button--success--modal{
+	@include button ($succesColor);
+}
 .button--submit{
 	@include button ($submitColor);
 }
@@ -20,6 +31,7 @@
     @include button ($primaryColor);
     color : $succesColor;
     height :35px;
+    width: auto;
 }
 .button--submit:hover{
 	background-color : $submitColor--hover;

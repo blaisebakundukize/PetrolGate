@@ -34,44 +34,4 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-	var navContainer = document.querySelector(".side-nav-container");
-	var navMenu = document.querySelector(".nav-container");
-    var toggleButton = document.querySelectorAll(".page-header__show-button");
-    var profilePopUp = document.querySelector(".profile-popup");
-    var profile = document.querySelector(".profile");
-    var arrowUp = document.querySelector(".arrow-up");
- 
-
-    function togglePopup(){
-    	profilePopUp.classList.toggle("show-profile");
-    	arrowUp.classList.toggle("show-profile");
-    }
-
-    function toggleNavigation() {
-        navContainer.classList.toggle("show-navigation-container");
-        navMenu.classList.toggle("show-navigation");
-    }
-
-    function windowOnClick(event) {
-        if (event.target === navContainer ) {
-            toggleNavigation();
-        }
-    }
-    
-    for (var i = 0; i < toggleButton.length; i++) {
-    	toggleButton[i].addEventListener("click", toggleNavigation);
-    }
-   
-    window.addEventListener("click", windowOnClick);
-    profile.addEventListener("click", togglePopup);
-
-	/*var navContainer = document.getElementsByClassName("side-nav-container")[0];
-	var toggleButton = document.getElementsByClassName("page-header__show-button");
-	for (var i = 0; i < toggleButton.length; i++) {
-		toggleButton[i].addEventListener("click",function(){
-        navContainer.classList.toggle("show-navigation");
-		})
-	}*/
-</script>
 

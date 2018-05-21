@@ -32,6 +32,24 @@ class HardGuess(object):
         else:
             return False
 
+    @staticmethod
+    def validate_password(password, confirm_password=None):
+        length = len(password)
+        must_length = 4
+        passed = True
+        if confirm_password is not None and password != confirm_password:
+            passed = False
+        if length != must_length:
+            passed = False
+        if password.isdigit() is False:
+            passed = False
+        if passed:
+            return True
+        else:
+            return False
+
+
+
 
 
 

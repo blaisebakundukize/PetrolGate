@@ -1,0 +1,21 @@
+<div class ="login-container">
+	<h1 class="login-container__h1">Sign In</h1>
+	<form class="login-container-form" id="login-container-form">
+		<div class="login-container-form-block">
+			<div class="login-container-form-block-icon">
+				<i class="material-icons">person</i>
+			</div>
+			<input class=" login-container-form-element login-container-form__username" required ="required" placeholder="Username" name="login-container-form-username"  type="text" id="login-container-form-username" maxlength="32" />
+		</div>
+		<div class="login-container-form-block">
+			<div class="login-container-form-block-icon">
+				<i class="material-icons">lock</i>
+			</div>
+			<input required ="required" class=" login-container-form-element login-container-formpassword" name="login-container-form__password" placeholder="Password" type="password" id="login-container-form-password" min="8" pattern ="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="Password should be 8 characters long and includes at least one number and one capital letter " />
+		</div>
+		<p class="login-error--message" id="login-error--message">Wrong Password or Username</p>
+		<div class="login-container-form-block">
+			<input name="login-container-form-submit" type="submit" class="login-container-form__submit" id="login-container-form__submit" value="Sign In"/>
+		</div>
+	</form>
+</div>

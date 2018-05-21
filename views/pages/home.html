@@ -1,11 +1,16 @@
-{% extends "views/templates/page-template-partial.html" %}
+{% extends "templates/page-template-partial.html" %}
 {% block PageTitle %}
 	Home
 {% endblock %}
 {% block header %}
-{% include "views/templates/page-header-partial.html"%}
+{% include "templates/page-header-partial.html"%}
 {% endblock %}
 {% block pageContent %}
-{% include "views/templates/side-nav-partial.html"%}
-{% include "views/templates/modal.html"%}
+{% include "templates/side-nav-partial.html"%}
+<h1 class="title"> Title </h1>
+<div class="activity-container">
+	{% for url, name in urls.iteritems()%}
+		{% include "templates/user-activity-partial.html"%}
+	{% endfor%}
+</div>
 {% endblock %}

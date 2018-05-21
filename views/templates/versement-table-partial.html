@@ -1,0 +1,188 @@
+<div class="versement-container">
+	<form class="versement-container-form" id="versement-container-form">
+		<div class="versement-container-date">
+			<label for="versement-container-date">Date de Tour</label><input required type="date" name="versement-container-date" id="versement-container-date">
+	    </div>
+	<div class="versement-container-station">
+		<label for="versement-container-station">Station</label><select name="versement-container-station" id="versement-container-station">
+			<option value="">Select Station</option>
+			<option value="Station1">Free Zone</option>
+            <option value="Station2">Kacyiru</option>
+            <option value="Station3">Nyabugogo</option>
+		</select>
+	</div>
+	<div class="new-filters">
+		<div class="new-filters-filter">
+			<button disabled class="delete-button"><i class="material-icons1 material-icons">delete_forever</i>Delete</button>
+		</div>
+	</div>
+	<div class="versement-container-table">
+	<table class="tables" id = "versement-table">
+	<thead>
+	<tr>
+		<th class="checkbox-cell">#</th>
+		<th>Activite</th>
+		<th>Montant a Verse</th>
+		<th>Montant Verse</th>
+		<th>Banque</th>
+		<th>Date</th>
+		<th>Total</th>
+		<th>Ecart</th>
+	</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<button class="versement-container-plus-button">+</button>
+</div>
+<button type="submit" id="versement-container-submit" name="versement-container-submit"><i class="material-icons1 material-icons">save</i>Save</button>
+</form>
+</div>
+<template id="new-table-row">
+	<tr id = "row">
+		<td><input type="checkbox" name="" class="checkboxes"></td>
+		<td>
+			<select name="versement-container-activite" id="versement-container-activite">
+			<option value="">Select Activites</option>
+			<option value="Activite1">Bay</option>
+            <option value="Activite2">Garage</option>
+            <option value="Activite3">Piste</option>
+		</select>
+		</td>
+		<td><input type="number"  required name="versement-container-montant-a-verse" id="versement-container-montant-a-verse"></td>
+		<td><input type="number" required name="versement-container-montant-verse" id="versement-container-montant-verse"></td>
+		<td>
+		<select name="versement-container-station" id="versement-container-station">
+			<option value="">Select Banques</option>
+			<option value="Banque1">Bank Of Kigali</option>
+            <option value="Banque2">Equity Bank</option>
+            <option value="Banque3">Ecobank</option>
+		</select>
+	    </td>
+		<td><input type="date" required name="versement-container-date-slip" id="versement-container-date-slip"></td>
+		<td><input type="number" required name="versement-container-total" id="versement-container-montant-total"></td>
+		<td><input type="number" required name="versement-container-montant-ecart" id="versement-container-montant-ecart"></td>
+	</tr>
+</template>
+<script type="text/javascript">
+	var index;
+	var tbody;
+	var rowNumber;
+	var rows;
+	var lastRow;
+	var lastRowcells;
+	var counter = 1;
+	var rowIds = [];
+	var data = [];
+	var deleteButton = document.getElementsByClassName("delete-button")[0];
+	var versementTable = document.getElementById("versement-table");
+	var checkboxes = document.getElementsByClassName("checkboxes");
+	var plusButton = document.getElementsByClassName("versement-container-plus-button");
+
+	plusButton[0].addEventListener("click", newRowAdder, false);
+
+	function indexor(){
+		var rowId = this.parentNode.parentNode.getAttribute("id");;
+		if (this.checked) {
+			rowIds.push(rowId);
+		}else{
+			rowIds = rowIds.filter(rowIds => rowIds != rowId);
+		}
+		if (rows.length > 1) {
+			deleteButton.disabled = rowIds.length == 0 ? true : false;
+		} 
+	}
+     
+     function removeRow(){
+     	console.log(rowIds);
+		for (var i = 0; i < rowIds.length; i++) {
+			console.log(rowIds[i]);
+			var beingDeletedRow = document.getElementById(rowIds[i]);
+			tbody.removeChild(beingDeletedRow);
+	     }
+	     rowIds = [];
+	     deleteButton.disabled = true;
+
+    }
+
+     function addedRowNamor(){
+     	rowNumber = tbody.children.length;
+		lastRow = rowNumber-1;
+		rows = tbody.children;
+		var attributeIdForRow = document.createAttribute("id");
+		var currentRowId = rows[lastRow].getAttribute("id")+""+counter;
+		attributeIdForRow.nodeValue = currentRowId;
+		rows[lastRow].setAttributeNode(attributeIdForRow);
+		lastRowcells = rows[lastRow].children;
+		for (var i = 0; i < lastRowcells.length; i++) {
+			var attributeName = document.createAttribute("name");
+			var attributeId = document.createAttribute("id");
+			var currentName = lastRowcells[i].firstElementChild.getAttribute("name")+""+counter;
+            attributeName.nodeValue = currentName;
+            attributeId.nodeValue = currentName;
+	        lastRowcells[i].firstElementChild.setAttributeNode(attributeName);
+	        lastRowcells[i].firstElementChild.setAttributeNode(attributeId);
+	        if (lastRowcells[i].firstElementChild.getAttribute("type") == "checkbox") {
+					lastRowcells[i].firstElementChild.addEventListener('click', indexor);
+				}
+	    }
+
+	    counter++;
+     }
+
+	deleteButton.addEventListener("click",function(e){
+		removeRow();
+		e.preventDefault();
+	});
+
+	function newRowAdder(){
+	    tbody = document.querySelector(".versement-container-table table tbody");
+	    var tableRowTemplate = document.querySelector("#new-table-row");
+	    var tableRow = tableRowTemplate.content.cloneNode(true);
+	    tbody.appendChild(tableRow);
+	    addedRowNamor();
+	}
+   
+	function formatData(){
+		var date = document.getElementById("versement-container-date").value;
+		var station = document.getElementById("versement-container-station").value;
+		var stationAnddate = {date : date, station : station };
+		//console.log(stationAnddate);
+		data.push(stationAnddate);
+		console.log(data);
+		for (var i = 1; i < versementTable.rows.length; i++) {
+			var currentCells = versementTable.rows[i].children;
+			//console.log(currentCells);
+			var activite = currentCells[1].firstElementChild.value;
+			var montant_a_verse = currentCells[2].firstElementChild.value;
+			var montant_verse = currentCells[3].firstElementChild.value;
+			var banque = currentCells[4].firstElementChild.value;
+			var slip_date = currentCells[5].firstElementChild.value;
+			var total = currentCells[6].firstElementChild.value;
+			var ecart = currentCells[7].firstElementChild.value;
+		
+			var currentData = {
+				activite : activite,
+                monta_a_verse : montant_a_verse,
+                montant_verse : montant_verse,
+                banque : banque,
+                slip_date : slip_date,
+                total : total,
+                ecart : ecart
+			};
+			data.push(currentData);
+		}
+	}
+	var versementForm = document.getElementById("versement-container-form");
+	versementForm.addEventListener("submit",function(e){
+		formatData();
+		//window.location.reload();
+		e.preventDefault();
+	});
+
+	document.addEventListener("DOMContentLoaded",function(){
+		for (var i = 1; i < 3; i++) {
+			newRowAdder();
+		}
+	});
+</script>

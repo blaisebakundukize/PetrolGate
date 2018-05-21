@@ -1,0 +1,28 @@
+
+.pagination{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
+.pagination__a {
+    color: $primaryFontColor;
+    float: left;
+    padding: 12px 20px;
+    text-decoration: none;
+    border: 1px solid $borderPrimaryColor;
+    background-color: $primaryColor;
+    border-collapse: collapse;
+}
+.pagination__a--active {
+    background-color: $submitColor--hover;
+    color: $primaryColor;
+    border: 1px solid $submitColor--hover;
+}
+.pagination__a:hover:not(.pagination__a--active) {
+    background-color: $submitColor--hover;
+    color:$primaryColor;
+    border: 1px solid $submitColor--hover;
+}
+.next-prev{
+    background-color: $borderPrimaryColor;
+}

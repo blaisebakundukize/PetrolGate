@@ -14,7 +14,7 @@ class Model(object):
     @property
     def connect(self):
         try:
-            self.connection = MySQLdb.connect(self.host, self.user, self.password, cursorclass=MySQLdb.cursors.DictCursor)
+            self.connection = MySQLdb.connect(self.host, self.user, self.password, db='petrol_stations_db', cursorclass=MySQLdb.cursors.DictCursor)
             return self.connection
         except MySQLdb.Error as error:
             print(error)
@@ -38,6 +38,17 @@ class Model(object):
         cursor = connection.cursor()
         try:
             cursor.execute(query)
+            cursor.close()
+            return True
+        except MySQLdb.Error, e:
+            print(e)
+            return False
+
+    @staticmethod
+    def execute_many(query, data, connection):
+        cursor = connection.cursor()
+        try:
+            cursor.executemany(query,data)
             cursor.close()
             return True
         except MySQLdb.Error, e:
@@ -80,6 +91,21 @@ class Model(object):
                     for i in result:
                         data = i
                     return data
+                else:
+                    return None
+            except MySQLdb.Error, e:
+                print(e)
+                return None
+
+    @staticmethod
+    def select_db_many(query, connection):
+        if connection:
+            cursor = connection.cursor()
+            try:
+                cursor.execute(query)
+                result = cursor.fetchall()
+                if result:
+                    return result
                 else:
                     return None
             except MySQLdb.Error, e:

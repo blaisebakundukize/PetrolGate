@@ -1,25 +1,25 @@
 import webapp2
-import MySQLdb
 from Models.registry import Registry
 from Models.user import User
 from Infrastructure.read_json import ExtractData
 from Infrastructure.session import user_required
 from Infrastructure.session import BaseHandler
 from Infrastructure.config import webapp2_config
+from Models.modelFetch import Model
 import json
 
 
 class RegisterCompanyHandler(BaseHandler):
     @user_required
     def get(self):
-        self.response.headers['Content-Type'] = 'text/plain'
-        self.response.write('its working here')
+        self.render_template('pages/registration.html')
 
     @user_required
     def post(self):
-        self.response.headers['Content-Type'] = 'application/json'
         data = self.request.body
-        company = ExtractData.load_json(data)
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.headers['Access-Control-Allow-Origin'] = '*'
+        company = json.loads(data)
         conn = self.get_connection()
         is_registered = Registry.register_company(company, conn)
         conn.close()
@@ -35,6 +35,7 @@ class RegisterCompanyPostTitle(BaseHandler):
     @user_required
     def post(self):
         self.response.headers['Content-Type'] = 'application/json'
+        self.response.headers['Access-Control-Allow-Origin'] = '*'
         titles = dict(self.request.POST)
         conn = self.get_connection()
         company_id = self.get_user_company_id()
@@ -52,6 +53,7 @@ class RegisterCompanyActivity(BaseHandler):
     @user_required
     def post(self):
         self.response.headers['Content-type'] = 'application/json'
+        self.response.headers['Access-Control-Allow-Origin'] = '*'
         activities = dict(self.request.POST)
         conn = self.get_connection()
         company_id = self.get_user_company_id()
@@ -64,30 +66,31 @@ class RegisterCompanyActivity(BaseHandler):
 class RegisterCompanyStation(BaseHandler):
     @user_required
     def get(self):
-        data = self.request.body
-        self.response.write(data)
-
-    # @user_required
-    def post(self):
-        self.response.headers['Content-type'] = 'application/json'
-        data = self.request.body
-        stations = ExtractData.load_json(data)
-        self.response.write(type(stations['stations']))
-        conn = self.get_connection()
-        company_id = self.get_user_company_id()
-        is_registered = Registry.register_station(company_id, stations, conn)
-        self.response.write(is_registered)
-        conn.close()
-
-
-class RegisterEmployeeHandler(BaseHandler):
-    @user_required
-    def get(self):
         pass
 
     @user_required
     def post(self):
         self.response.headers['Content-type'] = 'application/json'
+        self.response.headers['Access-Control-Allow-Origin'] = '*'
+        data = self.request.body
+        stations = ExtractData.load_json(data)
+        conn = self.get_connection()
+        company_id = self.get_user_company_id()
+        is_registered = Registry.register_station(company_id, stations, conn)
+        conn.close()
+        response_obj = ExtractData.response(is_registered)
+        self.response.write(response_obj)
+
+
+class RegisterEmployeeHandler(BaseHandler):
+    @user_required
+    def get(self):
+        self.render_template('pages/employee-registration.html')
+
+    @user_required
+    def post(self):
+        self.response.headers['Content-type'] = 'application/json'
+        self.response.headers['Access-Control-Allow-Origin'] = '*'
         data = self.request.body
         employee = ExtractData.load_json(data)
         conn = self.get_connection()
@@ -100,12 +103,12 @@ class RegisterEmployeeHandler(BaseHandler):
 class RegisterUserHandler(BaseHandler):
     @user_required
     def get(self):
-        self.response.headers['Content-Type'] = 'text/plain'
-        pass
+        self.render_template('pages/user-credentials.html')
 
     @user_required
     def post(self):
         self.response.headers['Content-Type'] = 'application/json'
+        self.response.headers['Access-Control-Allow-Origin'] = '*'
         data = self.request.body
         user = ExtractData.load_json(data)
         conn = self.get_connection()
@@ -118,28 +121,30 @@ class RegisterUserHandler(BaseHandler):
 class RegisterClientHandler(BaseHandler):
     @user_required
     def get(self):
-        pass
+        self.render_template('pages/client_registration.html')
 
     @user_required
     def post(self):
         self.response.headers['Content-Type'] = 'application/json'
+        self.response.headers['Access-Control-Allow-Origin'] = '*'
         data = self.request.body
         client = ExtractData.load_json(data)
         conn = self.get_connection()
-        is_registered = Registry.register_client(client, conn)
+        company_id = self.get_user_company_id()
+        is_registered = Registry.register_client(company_id, client, conn)
         conn.close()
-        response_obj = ExtractData.response(is_registered)
-        self.response.write(json.dumps(response_obj))
+        # response_obj = ExtractData.response(is_registered)
+        self.response.write(json.dumps(is_registered))
 
 
 app = webapp2.WSGIApplication([
-    ('/register/company', RegisterCompanyHandler),
-    ('/register/title', RegisterCompanyPostTitle),
-    ('/register/activity', RegisterCompanyActivity),
-    ('/register/station', RegisterCompanyStation),
-    ('/register/employee', RegisterEmployeeHandler),
-    ('/register/user', RegisterUserHandler),
-    ('/register/client', RegisterClientHandler)
+    ('/registration/company', RegisterCompanyHandler),
+    ('/registration/title', RegisterCompanyPostTitle),
+    ('/registration/activity', RegisterCompanyActivity),
+    ('/registration/station', RegisterCompanyStation),
+    ('/registration/employee', RegisterEmployeeHandler),
+    ('/registration/user', RegisterUserHandler),
+    ('/registration/client', RegisterClientHandler)
 ], config=webapp2_config, debug=True)
 
 

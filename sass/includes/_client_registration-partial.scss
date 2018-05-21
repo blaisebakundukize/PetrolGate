@@ -1,0 +1,49 @@
+.tab-container{
+	width: 90%;
+	height: 40px;
+    border: 1px solid #e6e6e6;
+    box-shadow: inset 0 0 4px #e6e6e6;
+    border-radius: 3px;
+    color: #42454a;
+    font-size: 16px;
+    font-family: Roboto,sans-serif;
+    background-color: #fff;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display:flex;
+    color: $primaryFontColor;
+}
+.tab{
+	border: 1px solid #e6e6e6;
+	box-shadow: inset 0 0 4px #e6e6e6;
+	height:100%;
+	width:50%;
+	background-color: inherit;
+	border:none;
+	outline: none;
+	font-size: $normalFontSize;
+	font-family: $font-family--Roboto;
+	color: $primaryFontColor;
+}
+.tab:hover{
+	color :$primaryColor;
+	background-color: $submitColor--hover;
+	font-size: $normalFontSize;
+	border: 1px solid $submitColor--hover;
+}
+.clickedTab{
+	color :$primaryColor;
+	background-color: $submitColor--hover;
+	border: 1px solid $submitColor--hover;
+}
+.tab-content{
+	width:90%;
+	margin-top:2px;
+}
+.tab1{
+	display: block;
+}
+.tab2{
+    display: none;	
+}

@@ -1,0 +1,65 @@
+<h1 class="title"> Employee Registration </h1>
+<form class="general-form employee-registration-form">
+	<div class="forms-container">
+		<div class="forms">
+			<div class="forms-block">
+				<div class="form-header">
+					<h1 class="form-header__h1">Employee Identification</h1>
+				</div>
+				<div class="forms-form">
+					<fieldset name="employee_identification">
+						<label class="form-label" for="employee_first_name">First Name</label>
+						<input type="text" placeholder="First Name" name="employee_first_name" required id="employee_first_name" class="form-element form-element--liquid-width">
+						<label class="form-label" for="">Last Name</label>
+						<input type="text" placeholder="Last Name" name="employee_last_name" required id="employee_last_name" class="form-element form-element--liquid-width">
+						<label class="form-label" for="birth_db">Date of Birth</label>
+						<input type="date" placeholder="Date of Birth" name="birth_db" required id="birth_db" class="form-element form-element--liquid-width">
+						<label class="form-label" for="employee_gender">Gender</label>
+						<select name="employee_gender" required id="employee_gender" class="form-element form-element--liquid-width">
+							<option>Select Gender</option>
+							<option value="female">Female</option>
+							<option value="male">Male</option>
+						</select>
+						<label class="form-label" for="employee_title">Title</label>
+						<select name="employee_title" required id="employee_title" class="form-element form-element--liquid-width">
+							<option>Select Title</option>
+							<option>Admin</option>
+							<option>Manager</option>
+							<option>Pompe Attendant</option>
+						</select>
+					</fieldset>
+				</div>
+			</div>
+			<div class="forms-block">
+				<div class="form-header">
+					<h1 class="form-header__h1">Employee Address</h1>
+				</div>
+				<div class="forms-form">
+					<fieldset name="employee_address">
+						<label class="form-label" for="employee_email">Email</label>
+						<input type="email" placeholder="Email" name="employee_email" required id="employee_email" class="form-element form-element--liquid-width">
+						<label class="form-label" for="employee_district">District</label>
+						<input type="text" placeholder="District" name="employee_district" required id="employee_district" class="form-element form-element--liquid-width">
+						<label class="form-label" for="employee_sector">Sector</label>
+						<input type="text" placeholder="Sector" name="employee_sector" required id="employee_sector" class="form-element form-element--liquid-width">
+						<label class="form-label" for="employee_tel">Phone</label>
+						<input type="tel" maxlength="10" placeholder="Phone" name="employee_tel" required id="employee_tel" class="form-element form-element--liquid-width">
+					</fieldset>
+				</div>
+			</div>
+		</div>
+		<div class="forms-container-foot">
+			<input type="submit" class="form-element form-element--liquid-width form-element--submit form-element--submit--company-registration" name="" value="Register">
+		</div>
+	</div>
+</form>
+<rs-modal title="Company Registration" role="dialog" id="employee_success_message">
+	<rs-modal-contents> 
+		<rs-modal-body>
+			<p class="confirmation_message"> Employee Registered Succesfully </p>
+		</rs-modal-body>
+		<div class="modal-footer">
+			<button id="modal-button--confirm" class="button--modal button--success">Ok</button>
+		</div>
+	</rs-modal-contents>
+</rs-modal>
