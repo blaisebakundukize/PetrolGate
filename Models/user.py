@@ -17,12 +17,10 @@ class User(object):
         return user
 
     @staticmethod
-    def get_ids(username, connection):
-        employee = 'employees'
-        title = 'titles'
-        query = 'SELECT '+employee+ '.employee_id, '+employee+ '.first_name, '+employee+ '.last_name,' + title + '.company_id from '+employee+' INNER JOIN '+title+ ' ON ' +employee+ '.title_id = ' +title+ '.title_id WHERE '+employee+ '.user = "'+username+'"'
-        ids = Model.select_db(query, connection)
-        return ids
+    def get_user(username, connection):
+        query = 'SELECT E.employee_id, first_name, last_name, T.company_id, A.email FROM employees E JOIN titles T ON E.title_id = T.title_id JOIN addresses A ON A.address_id = E.address_id WHERE E.user = "'+username+'"'
+        user = Model.select_db(query, connection)
+        return user
 
     @staticmethod
     def login(username, password):

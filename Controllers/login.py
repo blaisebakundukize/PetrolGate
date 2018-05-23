@@ -10,9 +10,6 @@ import json
 
 class LoginHandler(BaseHandler):
     def get(self):
-        # self.response.headers['Content-Type'] = 'application/json'
-        # user = self.get_user()
-        # self.response.write(user)
         self.render_template('pages/login.html')
 
     def post(self):
@@ -27,12 +24,13 @@ class LoginHandler(BaseHandler):
             password = HardGuess.secure_data(password)
             connection = User.login(username, password)
             if connection is not None:
-                ids = User.get_ids(username, connection)
-                employee = ids['employee_id']
-                company = ids['company_id']
-                employee_names = ids['first_name'] + ' ' + ids['last_name']
+                user_ids = User.get_user(username, connection)
+                employee = user_ids['employee_id']
+                company = user_ids['company_id']
+                employee_names = user_ids['first_name'] + ' ' + user_ids['last_name']
+                email = user_ids['email']
                 urls = User.get_urls(employee, connection)
-                user = {'user': username, 'pass': password, 'employee_id': employee, 'company_id': company, 'urls': urls}
+                user = {'user': username, 'pass': password, 'employee_id': employee, 'company_id': company, 'urls': urls, 'email': email}
                 self.session['user_id'] = user
                 response_obj = ExtractData.login_response(True, employee_names)
         self.response.write(json.dumps(response_obj))
